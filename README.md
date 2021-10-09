@@ -11,7 +11,7 @@ Redis Watcher is a [Redis](http://redis.io) watcher for [jCasbin](https://github
 
  ```
  <dependency>
- 	<groupId>org.casbin</groupId>
+     <groupId>org.casbin</groupId>
      <artifactId>jcasbin-redis-watcher</artifactId>
      <version>1.0-SNAPSHOT</version>
  </dependency>
