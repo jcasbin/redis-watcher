@@ -12,7 +12,6 @@ public class RedisWatcherTest {
     private RedisWatcher redisWatcher;
     private final String expect="update msg";
 
-
     @Before
     public void initWatcher(){
         String redisTopic = "jcasbin-topic";
@@ -29,5 +28,14 @@ public class RedisWatcherTest {
         redisWatcher.update();
         Thread.sleep(100);
         Assert.assertEquals(expect, expect);
+    }
+
+    @Test
+    public void testConsumerCallback() throws InterruptedException {
+        redisWatcher.setUpdateCallback((s) -> {
+            System.out.print(s);
+        });
+        redisWatcher.update();
+        Thread.sleep(100);
     }
 }
