@@ -6,6 +6,7 @@ import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 
 import java.util.UUID;
+import java.util.function.Consumer;
 
 public class RedisWatcher implements Watcher {
     private Runnable updateCallback;
@@ -25,6 +26,11 @@ public class RedisWatcher implements Watcher {
     public void setUpdateCallback(Runnable runnable) {
         this.updateCallback=runnable;
         subThread.setUpdateCallback(runnable);
+    }
+
+    @Override
+    public void setUpdateCallback(Consumer<String> consumer) {
+        subThread.setUpdateCallback(consumer);
     }
 
     @Override

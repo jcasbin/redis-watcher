@@ -3,6 +3,8 @@ package org.casbin.watcher;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
+import java.util.function.Consumer;
+
 public class SubThread extends Thread{
     private final JedisPool jedisPool;
     private final Subscriber subscriber;
@@ -16,6 +18,10 @@ public class SubThread extends Thread{
     }
     public void setUpdateCallback(Runnable runnable){
         subscriber.setUpdateCallback(runnable);
+    }
+
+    public void setUpdateCallback(Consumer<String> consumer) {
+        subscriber.setUpdateCallback(consumer);
     }
 
     @Override
