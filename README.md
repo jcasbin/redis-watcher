@@ -1,7 +1,13 @@
 Redis Watcher 
 ---
+
 [![GitHub Actions](https://github.com/jcasbin/redis-watcher/actions/workflows/maven-ci.yml/badge.svg)](https://github.com/jcasbin/redis-watcher/actions/workflows/maven-ci.yml)
 ![License](https://img.shields.io/github/license/jcasbin/redis-watcher)
+[![Javadoc](https://javadoc.io/badge2/org.casbin/redis-watcher/javadoc.svg)](https://javadoc.io/doc/org.casbin/redis-watcher)
+[![Maven Central](https://img.shields.io/maven-central/v/org.casbin/redis-watcher.svg)](https://mvnrepository.com/artifact/org.casbin/redis-watcher/latest)
+[![Release](https://img.shields.io/github/release/jcasbin/redis-watcher.svg)](https://github.com/jcasbin/redis-watcher/releases/latest)
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/casbin/lobby)
+
 
 Redis Watcher is a [Redis](http://redis.io) watcher for [jCasbin](https://github.com/casbin/jcasbin).
 
