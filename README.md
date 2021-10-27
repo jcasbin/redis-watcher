@@ -4,6 +4,8 @@ Redis Watcher
 [![GitHub Actions](https://github.com/jcasbin/redis-watcher/actions/workflows/maven-ci.yml/badge.svg)](https://github.com/jcasbin/redis-watcher/actions/workflows/maven-ci.yml)
 ![License](https://img.shields.io/github/license/jcasbin/redis-watcher)
 [![Javadoc](https://javadoc.io/badge2/org.casbin/redis-watcher/javadoc.svg)](https://javadoc.io/doc/org.casbin/redis-watcher)
+[![codecov](https://codecov.io/gh/jcasbin/redis-watcher/branch/master/graph/badge.svg?token=ENt9xr4nFg)](https://codecov.io/gh/jcasbin/redis-watcher)
+[![codebeat badge](https://codebeat.co/badges/8b3da1c4-3a61-4123-a3d4-002b2598a297)](https://codebeat.co/projects/github-com-jcasbin-redis-watcher-master)
 [![Maven Central](https://img.shields.io/maven-central/v/org.casbin/redis-watcher.svg)](https://mvnrepository.com/artifact/org.casbin/redis-watcher/latest)
 [![Release](https://img.shields.io/github/release/jcasbin/redis-watcher.svg)](https://github.com/jcasbin/redis-watcher/releases/latest)
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/casbin/lobby)
