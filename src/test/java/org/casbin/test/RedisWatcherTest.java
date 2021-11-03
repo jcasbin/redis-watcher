@@ -12,10 +12,13 @@ public class RedisWatcherTest {
     private RedisWatcher redisWatcher;
     private final String expect="update msg";
 
+    /**
+     * You should replace the initWatcher() method's content with your own Redis instance.
+     */
     @Before
     public void initWatcher(){
         String redisTopic = "jcasbin-topic";
-        redisWatcher = new RedisWatcher("127.0.0.1",6379, redisTopic);
+        redisWatcher = new RedisWatcher("127.0.0.1",6379, redisTopic, 2000, "foobared");
         Enforcer enforcer = new Enforcer();
         enforcer.setWatcher(redisWatcher);
     }
@@ -37,5 +40,12 @@ public class RedisWatcherTest {
         });
         redisWatcher.update();
         Thread.sleep(100);
+    }
+
+    @Test
+    public void testConnectWatcherWithoutPassword() {
+        String redisTopic = "jcasbin-topic";
+        RedisWatcher redisWatcherWithoutPassword = new RedisWatcher("127.0.0.1", 6378, redisTopic);
+        Assert.assertNotNull(redisWatcherWithoutPassword);
     }
 }

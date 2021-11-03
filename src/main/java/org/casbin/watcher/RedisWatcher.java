@@ -15,11 +15,15 @@ public class RedisWatcher implements Watcher {
     private final String redisChannelName;
     private SubThread subThread;
 
-    public RedisWatcher(String redisIp, int redisPort,String redisChannelName){
-        this.jedisPool = new JedisPool(new JedisPoolConfig(), redisIp, redisPort);
+    public RedisWatcher(String redisIp, int redisPort, String redisChannelName, int timeout, String password) {
+        this.jedisPool = new JedisPool(new JedisPoolConfig(), redisIp, redisPort, timeout, password);
         this.localId = UUID.randomUUID().toString();
-        this.redisChannelName=redisChannelName;
+        this.redisChannelName = redisChannelName;
         startSub();
+    }
+
+    public RedisWatcher(String redisIp, int redisPort, String redisChannelName) {
+        this(redisIp, redisPort, redisChannelName, 2000, (String)null);
     }
 
     @Override

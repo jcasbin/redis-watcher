@@ -3,10 +3,10 @@ Redis Watcher
 
 [![GitHub Actions](https://github.com/jcasbin/redis-watcher/actions/workflows/maven-ci.yml/badge.svg)](https://github.com/jcasbin/redis-watcher/actions/workflows/maven-ci.yml)
 ![License](https://img.shields.io/github/license/jcasbin/redis-watcher)
-[![Javadoc](https://javadoc.io/badge2/org.casbin/redis-watcher/javadoc.svg)](https://javadoc.io/doc/org.casbin/redis-watcher)
+[![Javadoc](https://javadoc.io/badge2/org.casbin/jcasbin-redis-watcher/javadoc.svg)](https://javadoc.io/doc/org.casbin/jcasbin-redis-watcher)
 [![codecov](https://codecov.io/gh/jcasbin/redis-watcher/branch/master/graph/badge.svg?token=ENt9xr4nFg)](https://codecov.io/gh/jcasbin/redis-watcher)
 [![codebeat badge](https://codebeat.co/badges/8b3da1c4-3a61-4123-a3d4-002b2598a297)](https://codebeat.co/projects/github-com-jcasbin-redis-watcher-master)
-[![Maven Central](https://img.shields.io/maven-central/v/org.casbin/redis-watcher.svg)](https://mvnrepository.com/artifact/org.casbin/redis-watcher/latest)
+[![Maven Central](https://img.shields.io/maven-central/v/org.casbin/jcasbin-redis-watcher.svg)](https://mvnrepository.com/artifact/org.casbin/jcasbin-redis-watcher/latest)
 [![Release](https://img.shields.io/github/release/jcasbin/redis-watcher.svg)](https://github.com/jcasbin/redis-watcher/releases/latest)
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/casbin/lobby)
 
@@ -40,6 +40,8 @@ if you have two casbin instances A and B
 ```java
 String redisTopic="jcasbin-topic";
 RedisWatcher redisWatcher = new RedisWatcher("127.0.0.1",6379, redisTopic);
+// Support for connecting to redis with timeout and password
+// RedisWatcher redisWatcher = new RedisWatcher("127.0.0.1",6379, redisTopic, 2000, "foobared");
 
 Enforcer enforcer = new SyncedEnforcer("examples/rbac_model.conf", "examples/rbac_policy.csv");
 enforcer.setWatcher(redisWatcher);
