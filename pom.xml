@@ -61,14 +61,9 @@
             <version>${slf4j.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple</artifactId>
-            <version>${slf4j.version}</version>
-        </dependency>
-        <dependency>
             <groupId>org.casbin</groupId>
             <artifactId>jcasbin</artifactId>
-            <version>1.13.3</version>
+            <version>1.22.2</version>
         </dependency>
 
         <dependency>
