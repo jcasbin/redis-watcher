@@ -5,6 +5,8 @@ import org.casbin.watcher.RedisWatcher;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import redis.clients.jedis.JedisPoolConfig;
+
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
@@ -18,7 +20,9 @@ public class RedisWatcherTest {
     @Before
     public void initWatcher(){
         String redisTopic = "jcasbin-topic";
-        redisWatcher = new RedisWatcher("127.0.0.1",6379, redisTopic, 2000, "foobared");
+        JedisPoolConfig config = new JedisPoolConfig();
+        config.setMaxTotal(2);
+        redisWatcher = new RedisWatcher(config,"127.0.0.1",6379, redisTopic, 2000, "foobared");
         Enforcer enforcer = new Enforcer();
         enforcer.setWatcher(redisWatcher);
     }
