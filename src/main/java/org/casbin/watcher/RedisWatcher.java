@@ -22,6 +22,13 @@ public class RedisWatcher implements Watcher {
         startSub();
     }
 
+    public RedisWatcher(JedisPoolConfig config, String redisIp, int redisPort, String redisChannelName, int timeout, String password) {
+        this.jedisPool = new JedisPool(config, redisIp, redisPort, timeout, password);
+        this.localId = UUID.randomUUID().toString();
+        this.redisChannelName = redisChannelName;
+        startSub();
+    }
+
     public RedisWatcher(String redisIp, int redisPort, String redisChannelName) {
         this(redisIp, redisPort, redisChannelName, 2000, (String)null);
     }
