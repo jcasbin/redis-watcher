@@ -26,10 +26,18 @@ public class SubThread extends Thread{
 
     @Override
     public void run() {
-        try (Jedis jedis = jedisPool.getResource()) {
-            jedis.subscribe(subscriber, channel);
-        } catch (Exception e) {
-            e.printStackTrace();
+        while (true) {
+            try (Jedis jedis = jedisPool.getResource()) {
+                jedis.subscribe(subscriber, channel);
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 }
