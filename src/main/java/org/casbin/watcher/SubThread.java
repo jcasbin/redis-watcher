@@ -24,14 +24,14 @@ public class SubThread extends Thread{
         subscriber.setUpdateCallback(consumer);
     }
 
-   @Override
+    @Override
     public void run() {
         while (true) {
             try (Jedis jedis = jedisPool.getResource()) {
                 jedis.subscribe(subscriber, channel);
             } catch (Exception e) {
                 e.printStackTrace();
-            }finally {
+            } finally {
                 try {
                     Thread.sleep(500);
                 } catch (InterruptedException e) {
