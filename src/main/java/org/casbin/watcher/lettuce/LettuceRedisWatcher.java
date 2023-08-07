@@ -23,9 +23,10 @@ public class LettuceRedisWatcher implements Watcher {
     private final String redisChannelName;
     private final AbstractRedisClient abstractRedisClient;
     private LettuceSubThread lettuceSubThread;
+    private Runnable updateCallback;
 
     /**
-     * 构造方法
+     * Constructor
      *
      * @param redisIp          Redis IP
      * @param redisPort        Redis Port
@@ -42,7 +43,7 @@ public class LettuceRedisWatcher implements Watcher {
     }
 
     /**
-     * 构造方法
+     * Constructor
      *
      * @param redisIp          Redis IP
      * @param redisPort        Redis Port
@@ -54,7 +55,8 @@ public class LettuceRedisWatcher implements Watcher {
 
     @Override
     public void setUpdateCallback(Runnable runnable) {
-        // TODO document why this method is empty
+        this.updateCallback = runnable;
+        lettuceSubThread.setUpdateCallback(runnable);
     }
 
     @Override
@@ -74,7 +76,7 @@ public class LettuceRedisWatcher implements Watcher {
     }
 
     private void startSub() {
-        this.lettuceSubThread = new LettuceSubThread(this.abstractRedisClient, this.redisChannelName);
+        this.lettuceSubThread = new LettuceSubThread(this.abstractRedisClient, this.redisChannelName, this.updateCallback);
         this.lettuceSubThread.start();
     }
 

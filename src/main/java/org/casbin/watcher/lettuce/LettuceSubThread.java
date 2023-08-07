@@ -23,11 +23,20 @@ public class LettuceSubThread extends Thread {
      * @param abstractRedisClient abstractRedisClient
      * @param channel             channel
      */
-    public LettuceSubThread(AbstractRedisClient abstractRedisClient, String channel) {
+    public LettuceSubThread(AbstractRedisClient abstractRedisClient, String channel, Runnable updateCallback) {
         super("LettuceSubThread");
         this.channel = channel;
         this.abstractRedisClient = abstractRedisClient;
-        lettuceSubscriber = new LettuceSubscriber();
+        lettuceSubscriber = new LettuceSubscriber(updateCallback);
+    }
+
+    /**
+     * set runnable
+     *
+     * @param runnable runnable
+     */
+    public void setUpdateCallback(Runnable runnable){
+        lettuceSubscriber.setUpdateCallback(runnable);
     }
 
     /**
