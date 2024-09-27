@@ -8,6 +8,11 @@
     <artifactId>jcasbin-redis-watcher</artifactId>
     <version>0.0.1</version>
 
+    <name>Redis watcher for jCasbin</name>
+    <description>Redis Watcher is a Redis watcher for jCasbin</description>
+    <url>https://github.com/jcasbin/redis-watcher</url>
+    <inceptionYear>2021</inceptionYear>
+
     <issueManagement>
         <system>Github</system>
         <url>https://github.com/jcasbin/redis-watcher/issues</url>
